@@ -186,7 +186,7 @@ def get_vital_list():
 
 
 @application.route('/ecglist', method=['GET'])
-def get_prescription_list():
+def get_ecg_list():
     ecg = mongo.db.ecg
     pid = request.args.get('pid', type=str)
     output = []
