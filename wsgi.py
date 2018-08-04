@@ -27,7 +27,7 @@ class Token_use():
         return self.pid
 
 
-mongo = PyMongo(app)
+mongo = PyMongo(application)
 
 token_obj = Token_use()
 
