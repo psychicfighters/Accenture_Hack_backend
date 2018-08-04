@@ -1,3 +1,4 @@
+from bson import ObjectId
 from flask import Flask
 from flask import jsonify
 from flask import request
@@ -25,6 +26,7 @@ class Token_use():
     def new_pid(self):
         self.pid = self.pid + 1
         return self.pid
+
     def reset_evr(self):
         self.token_user = 1010
         self.pid = 555
@@ -34,23 +36,31 @@ mongo = PyMongo(application)
 
 token_obj = Token_use()
 
+
 @application.route('/reset', methods=['GET'])
 def reset():
     token_obj.reset_evr()
 
+
 @application.route('/user', methods=['GET'])
-def get_one_star():
+def get_user():
     user = mongo.db.user
     token = request.args.get('token', type=str)
     output = []
     # s = star.find_one({'name' : name})
     for s in user.find({'token': token}):
         output.append({'name': s['name'], 'age': s['age'], 'pid': s['pid']})
-    return jsonify({'result': output})
+
+    if output is not None and len(output) != 0:
+        error = False
+    else:
+        error = True
+
+    return jsonify({'patientlist': output, 'error': error})
 
 
 @application.route('/register', methods=['POST'])
-def add_star():
+def add_user():
     user = mongo.db.user
     name = request.json['name']
     age = request.json['age']
@@ -66,6 +76,47 @@ def add_star():
     # output = {'name' : new_star['name'], 'distance' : new_star['distance']}
     #
     return jsonify({'pid': assign_pid, 'result_token': token})
+
+
+@application.route('/checkuprequestlist', methods=['GET'])
+def get_checkup_list():
+    checkup = mongo.db.checkup
+    pid = request.args.get('pid', type=str)
+    output = []
+    # s = star.find_one({'name' : name})
+    for s in checkup.find({'pid': pid}):
+
+        output.append({'id': str(s['_id']), 'timestamp': s['timestamp'], 'type': s['type'], 'status': s['status']})
+
+    if output is not None and len(output) != 0:
+        error = False
+    else:
+        error = True
+
+    return jsonify({'checkupreqlist': output, 'error': error})
+
+
+@application.route('/checkuprequest', methods=['POST'])
+def request_checkup():
+    checkup = mongo.db.checkup
+    pid = request.json['pid']
+    timestap = request.json['timestamp']
+    type = request.json['type']
+
+    check_id = checkup.insert({'pid': pid, 'timestamp': timestap, 'type': type, 'status': 'Pending'})
+    return jsonify({'error': False})
+
+
+@application.route('/checkupdone', methods=['POST'])
+def checkup_update():
+    checkup = mongo.db.checkup
+    id = request.json['id']
+    id = ObjectId(id)
+    check_id = checkup.update_one({'_id': id}, {'$set': {'status': 'Done'}})
+    return jsonify({'error': False})
+
+
+
 
 
 if __name__ == '__main__':
