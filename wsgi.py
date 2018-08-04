@@ -25,12 +25,18 @@ class Token_use():
     def new_pid(self):
         self.pid = self.pid + 1
         return self.pid
+    def reset_evr(self):
+        self.token_user = 1010
+        self.pid = 555
 
 
 mongo = PyMongo(application)
 
 token_obj = Token_use()
 
+@application.route('/reset', methods=['GET'])
+def reset():
+    token_obj.reset_evr()
 
 @application.route('/user', methods=['GET'])
 def get_one_star():
