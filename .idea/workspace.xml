@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b8344da-cddc-47b0-bac3-5b6d7614b172" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wsgi.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +17,8 @@
       <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
+            <state relative-caret-position="467">
+              <caret line="240" column="40" selection-start-line="240" selection-start-column="40" selection-end-line="240" selection-end-column="40" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
                 <element signature="e#482#729#0" />
@@ -25,11 +26,12 @@
                 <element signature="e#2083#2531#0" />
                 <element signature="e#2601#2874#0" />
                 <element signature="e#2969#3238#0" />
-                <element signature="e#3283#3743#0" />
                 <element signature="e#3818#4261#0" />
                 <element signature="e#4329#4772#0" />
                 <element signature="e#4936#5379#0" />
                 <element signature="e#5397#5840#0" />
+                <element signature="e#5861#6114#0" />
+                <element signature="e#6191#6441#0" />
               </folding>
             </state>
           </provider>
@@ -175,17 +177,32 @@
       <option name="project" value="LOCAL" />
       <updated>1533413892266</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Seventh">
+      <created>1533417416997</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1533417416997</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Eighth">
+      <created>1533417653738</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1533417653738</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5080645" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5897436" />
-      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Version Control" weight="0.32905984" />
       <window_info anchor="bottom" id="Python Console" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" weight="0.32905984" />
@@ -205,7 +222,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Sixth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sixth" />
+    <MESSAGE value="Seventh" />
+    <MESSAGE value="Eighth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eighth" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.s2i/environment">
@@ -227,8 +251,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
+        <state relative-caret-position="467">
+          <caret line="240" column="40" selection-start-line="240" selection-start-column="40" selection-end-line="240" selection-end-column="40" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
             <element signature="e#482#729#0" />
@@ -236,11 +260,12 @@
             <element signature="e#2083#2531#0" />
             <element signature="e#2601#2874#0" />
             <element signature="e#2969#3238#0" />
-            <element signature="e#3283#3743#0" />
             <element signature="e#3818#4261#0" />
             <element signature="e#4329#4772#0" />
             <element signature="e#4936#5379#0" />
             <element signature="e#5397#5840#0" />
+            <element signature="e#5861#6114#0" />
+            <element signature="e#6191#6441#0" />
           </folding>
         </state>
       </provider>

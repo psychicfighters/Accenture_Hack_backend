@@ -116,7 +116,7 @@ def checkup_update():
     return jsonify({'error': False})
 
 
-@application.route('/prescriptionlist', method=['GET'])
+@application.route('/prescriptionlist', methods=['GET'])
 def get_prescription_list():
     prescription = mongo.db.prescription
     pid = request.args.get('pid', type=str)
@@ -133,7 +133,7 @@ def get_prescription_list():
     return jsonify({'prescriptionlist': output, 'error': error})
 
 
-@application.route('/bplist', method=['GET'])
+@application.route('/bplist', methods=['GET'])
 def get_bp_list():
     bp = mongo.db.bp
     pid = request.args.get('pid', type=str)
@@ -150,7 +150,7 @@ def get_bp_list():
     return jsonify({'bplist': output, 'error': error})
 
 
-@application.route('/sugarlist', method=['GET'])
+@application.route('/sugarlist', methods=['GET'])
 def get_sugar_list():
     sugar = mongo.db.sugar
     pid = request.args.get('pid', type=str)
@@ -168,7 +168,7 @@ def get_sugar_list():
     return jsonify({'sugarlist': output, 'error': error})
 
 
-@application.route('/vitallist', method=['GET'])
+@application.route('/vitallist', methods=['GET'])
 def get_vital_list():
     vitals = mongo.db.vitals
     pid = request.args.get('pid', type=str)
@@ -185,7 +185,7 @@ def get_vital_list():
     return jsonify({'vitallist': output, 'error': error})
 
 
-@application.route('/ecglist', method=['GET'])
+@application.route('/ecglist', methods=['GET'])
 def get_ecg_list():
     ecg = mongo.db.ecg
     pid = request.args.get('pid', type=str)
@@ -201,6 +201,44 @@ def get_ecg_list():
 
     return jsonify({'ecglist': output, 'error': error})
 
+@application.route('/ecgimage', methods=['GET'])
+def get_ecg_image():
+    ecg = mongo.db.ecg
+    id = request.args.get('id', type=str)
+    output = []
+    # s = star.find_one({'name' : name})
+    s = ecg.find({'_id': ObjectId(id)})
+
+    return jsonify({'timestamp': s['timestamp'], 'ecg_url': s['ecg_url'], 'error': False})
+
+
+@application.route('/ecgimage', methods=['GET'])
+def get_pres_image():
+    prescription = mongo.db.ecg
+    id = request.args.get('id', type=str)
+    output = []
+    # s = star.find_one({'name' : name})
+    s = prescription.find({'_id': ObjectId(id)})
+
+    return jsonify({'timestamp': s['timestamp'], 'prescription_image': s['prescription_image'], 'error': False})
+
+
+@application.route('/vitaldetails', methods=['GET'])
+def get_vital_detail_list():
+    vital = mongo.db.vitals
+    pid = request.args.get('pid', type=str)
+    timestamp = request.args.get('timestamp', type=str)
+    output = []
+    # s = star.find_one({'name' : name})
+    for s in vital.find({'pid': pid, 'timestamp': timestamp}):
+        output.append({'id': str(s['_id']), 'type': s['type'], 'value': s['value']})
+
+    if output is not None and len(output) != 0:
+        error = False
+    else:
+        error = True
+
+    return jsonify({'vitaldetails': output, 'error': error})
 
 
 if __name__ == '__main__':
