@@ -116,6 +116,90 @@ def checkup_update():
     return jsonify({'error': False})
 
 
+@application.route('/prescriptionlist', method=['GET'])
+def get_prescription_list():
+    prescription = mongo.db.prescription
+    pid = request.args.get('pid', type=str)
+    output = []
+    # s = star.find_one({'name' : name})
+    for s in prescription.find({'pid': pid}):
+        output.append({'id': str(s['_id']), 'timestamp': s['timestamp'], 'pid': s['type']})
+
+    if output is not None and len(output) != 0:
+        error = False
+    else:
+        error = True
+
+    return jsonify({'prescriptionlist': output, 'error': error})
+
+
+@application.route('/bplist', method=['GET'])
+def get_bp_list():
+    bp = mongo.db.bp
+    pid = request.args.get('pid', type=str)
+    output = []
+    # s = star.find_one({'name' : name})
+    for s in bp.find({'pid': pid}):
+        output.append({'id': str(s['_id']), 'timestamp': s['timestamp'], 'sys': s['sys'], 'dia': s['dia']})
+
+    if output is not None and len(output) != 0:
+        error = False
+    else:
+        error = True
+
+    return jsonify({'bplist': output, 'error': error})
+
+
+@application.route('/sugarlist', method=['GET'])
+def get_sugar_list():
+    sugar = mongo.db.sugar
+    pid = request.args.get('pid', type=str)
+    output = []
+    # s = star.find_one({'name' : name})
+    for s in sugar.find({'pid': pid}):
+        output.append({'id': str(s['_id']), 'timestamp': s['timestamp'], 'sugar_first': s['sugar_first'],
+                       'sugar_pp': s['sugar_pp'], 'sugar_random': s['sugar_random']})
+
+    if output is not None and len(output) != 0:
+        error = False
+    else:
+        error = True
+
+    return jsonify({'sugarlist': output, 'error': error})
+
+
+@application.route('/vitallist', method=['GET'])
+def get_vital_list():
+    vitals = mongo.db.vitals
+    pid = request.args.get('pid', type=str)
+    output = []
+    # s = star.find_one({'name' : name})
+    for s in vitals.find({'pid': pid}):
+        output.append({'id': str(s['_id']), 'timestamp': s['timestamp'], 'pid': s['pid']})
+
+    if output is not None and len(output) != 0:
+        error = False
+    else:
+        error = True
+
+    return jsonify({'vitallist': output, 'error': error})
+
+
+@application.route('/ecglist', method=['GET'])
+def get_prescription_list():
+    ecg = mongo.db.ecg
+    pid = request.args.get('pid', type=str)
+    output = []
+    # s = star.find_one({'name' : name})
+    for s in ecg.find({'pid': pid}):
+        output.append({'id': str(s['_id']), 'timestamp': s['timestamp'], 'pid': s['type']})
+
+    if output is not None and len(output) != 0:
+        error = False
+    else:
+        error = True
+
+    return jsonify({'ecglist': output, 'error': error})
 
 
 
