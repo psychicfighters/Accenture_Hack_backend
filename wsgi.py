@@ -5,10 +5,10 @@ from flask_pymongo import PyMongo
 import urllib.parse
 import sys
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'acc_comp_nik'
-app.config['MONGO_URI'] = 'mongodb://nilagnik:' + urllib.parse.quote(
+application.config['MONGO_DBNAME'] = 'acc_comp_nik'
+application.config['MONGO_URI'] = 'mongodb://nilagnik:' + urllib.parse.quote(
     "Nilu@1234") + '@ds113452.mlab.com:13452/acc_comp_nik'
 
 
@@ -32,7 +32,7 @@ mongo = PyMongo(app)
 token_obj = Token_use()
 
 
-@app.route('/user', methods=['GET'])
+@application.route('/user', methods=['GET'])
 def get_one_star():
     user = mongo.db.user
     token = request.args.get('token', type=str)
@@ -43,7 +43,7 @@ def get_one_star():
     return jsonify({'result': output})
 
 
-@app.route('/register', methods=['POST'])
+@application.route('/register', methods=['POST'])
 def add_star():
     user = mongo.db.user
     name = request.json['name']
@@ -63,4 +63,4 @@ def add_star():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
