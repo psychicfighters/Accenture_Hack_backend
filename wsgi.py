@@ -71,6 +71,8 @@ def add_user():
     user_count = mongo.db.usercount
     try:
         token = request.json['token']
+        if len(token) == 0:
+            raise Exception('')
     except:
 
 
