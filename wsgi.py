@@ -40,9 +40,10 @@ token_obj = Token_use()
 @application.route('/reset', methods=['GET'])
 def reset():
     token_obj.reset_evr()
+    return jsonify({"hola": "hola"})
 
 
-@application.route('/user', methods=['GET'])
+@application.route('/user', methods=['GET'])     #done
 def get_user():
     user = mongo.db.user
     token = request.args.get('token', type=str)
@@ -59,26 +60,47 @@ def get_user():
     return jsonify({'patientlist': output, 'error': error})
 
 
-@application.route('/register', methods=['POST'])
+@application.route('/register', methods=['POST'])    #done
 def add_user():
     user = mongo.db.user
     name = request.json['name']
     age = request.json['age']
     addr = request.json['addr']
+    email = request.json['email']
+    gender = request.json['gender']
+    user_count = mongo.db.usercount
     try:
         token = request.json['token']
     except:
-        token = str(token_obj.update())
 
-    assign_pid = str(token_obj.new_pid())
-    star_id = user.insert({'pid': assign_pid, 'token': token, 'name': name, 'age': age, 'addr': addr})
+
+        val = user_count.find_one({})
+        try:
+            if val['count'] is None or val['count'] == 0:
+                pass
+        except:
+            id = user_count.insert({'count': 11007, 'pcount': 7643})
+            #else:
+
+        try:
+            id = user_count.update_one({}, {'$set': {'count': val['count'] + 1}})
+        except:
+            pass
+        val = user_count.find_one({})
+        token = str(val['count'])
+
+    val = user_count.find_one({})
+    id = user_count.update_one({}, {'$set': {'pcount': val['pcount'] + 1}})
+    assign_pid = 'PA' + str(val['pcount'])
+    star_id = user.insert({'pid': assign_pid, 'token': token, 'name': name, 'age': age, 'addr': addr, 'email': email,
+                           'gender': gender})
     # new_star = star.find_one({'_id': star_id })
     # output = {'name' : new_star['name'], 'distance' : new_star['distance']}
     #
     return jsonify({'pid': assign_pid, 'result_token': token})
 
 
-@application.route('/checkuprequestlist', methods=['GET'])
+@application.route('/checkuprequestlist', methods=['GET'])  #done
 def get_checkup_list():
     checkup = mongo.db.checkup
     pid = request.args.get('pid', type=str)
@@ -96,7 +118,7 @@ def get_checkup_list():
     return jsonify({'checkupreqlist': output, 'error': error})
 
 
-@application.route('/checkuprequest', methods=['POST'])
+@application.route('/checkuprequest', methods=['POST'])     #done
 def request_checkup():
     checkup = mongo.db.checkup
     pid = request.json['pid']
@@ -107,7 +129,7 @@ def request_checkup():
     return jsonify({'error': False})
 
 
-@application.route('/checkupdone', methods=['POST'])
+@application.route('/checkupdone', methods=['POST'])        #done
 def checkup_update():
     checkup = mongo.db.checkup
     id = request.json['id']
@@ -116,7 +138,7 @@ def checkup_update():
     return jsonify({'error': False})
 
 
-@application.route('/prescriptionlist', methods=['GET'])
+@application.route('/prescriptionlist', methods=['GET'])    #done
 def get_prescription_list():
     prescription = mongo.db.prescription
     pid = request.args.get('pid', type=str)
@@ -133,28 +155,30 @@ def get_prescription_list():
     return jsonify({'prescriptionlist': output, 'error': error})
 
 
-@application.route('/presimage', methods=['GET'])
+@application.route('/presimage', methods=['GET'])           #done
 def get_pres_image():
     prescription = mongo.db.prescription
     id = request.args.get('id', type=str)
     output = []
+    id = ObjectId(id)
     # s = star.find_one({'name' : name})
-    s = prescription.find({'_id': ObjectId(id)})
+    s = prescription.find_one({'_id': id})
 
-    return jsonify({'timestamp': s['timestamp'], 'prescription_image': s['prescription_image'], 'error': False})
+    return jsonify({'prescription_image': s['prescription_image'], 'timestamp': s['timestamp'], 'error': False})
 
 
-@application.route('/uploadpres', methods=['POST'])
+@application.route('/uploadpres', methods=['POST'])         #done
 def upload_prescription():
     prescription = mongo.db.prescription
     pid = request.json['pid']
     timestamp = request.json['timestamp']
     url = request.json['url']
-    check_id = prescription.insert({'pid': pid, 'timestamp': timestamp, 'prescription_image': url})
+    type = request.json['type']
+    check_id = prescription.insert({'pid': pid, 'timestamp': timestamp, 'prescription_image': url, 'type': type})
     return jsonify({'error': False})
 
 
-@application.route('/ecglist', methods=['GET'])
+@application.route('/ecglist', methods=['GET'])         #done
 def get_ecg_list():
     ecg = mongo.db.ecg
     pid = request.args.get('pid', type=str)
@@ -171,28 +195,29 @@ def get_ecg_list():
     return jsonify({'ecglist': output, 'error': error})
 
 
-@application.route('/ecgimage', methods=['GET'])
+@application.route('/ecgimage', methods=['GET'])        #done
 def get_ecg_image():
     ecg = mongo.db.ecg
     id = request.args.get('id', type=str)
     output = []
     # s = star.find_one({'name' : name})
-    s = ecg.find({'_id': ObjectId(id)})
+    s = ecg.find_one({'_id': ObjectId(id)})
 
     return jsonify({'timestamp': s['timestamp'], 'ecg_url': s['ecg_url'], 'error': False})
 
 
-@application.route('/uploadecg', methods=['POST'])
+@application.route('/uploadecg', methods=['POST'])      #done
 def upload_ecg():
     ecg = mongo.db.ecg
     pid = request.json['pid']
     timestamp = request.json['timestamp']
     url = request.json['url']
-    check_id = ecg.insert({'pid': pid, 'timestamp': timestamp, 'prescription_image': url})
+    type = request.json['type']
+    check_id = ecg.insert({'pid': pid, 'timestamp': timestamp, 'ecg_url': url, 'type': type})
     return jsonify({'error': False})
 
 
-@application.route('/bplist', methods=['GET'])
+@application.route('/bplist', methods=['GET'])      #done
 def get_bp_list():
     bp = mongo.db.bp
     pid = request.args.get('pid', type=str)
@@ -209,7 +234,7 @@ def get_bp_list():
     return jsonify({'bplist': output, 'error': error})
 
 
-@application.route('/bpupload', methods=['POST'])
+@application.route('/bpupload', methods=['POST'])       #done
 def upload_bp():
     bp = mongo.db.bp
     pid = request.json['pid']
@@ -220,7 +245,7 @@ def upload_bp():
     return jsonify({'error': False})
 
 
-@application.route('/sugarlist', methods=['GET'])
+@application.route('/sugarlist', methods=['GET'])       #done
 def get_sugar_list():
     sugar = mongo.db.sugar
     pid = request.args.get('pid', type=str)
@@ -238,7 +263,7 @@ def get_sugar_list():
     return jsonify({'sugarlist': output, 'error': error})
 
 
-@application.route('/uploadsugar', methods=['POST'])
+@application.route('/uploadsugar', methods=['POST'])    #done
 def upload_sugar():
     sugar = mongo.db.sugar
     pid = request.json['pid']
@@ -251,7 +276,7 @@ def upload_sugar():
     return jsonify({'error': False})
 
 
-@application.route('/vitallist', methods=['GET'])
+@application.route('/vitallist', methods=['GET'])       #done
 def get_vital_list():
     vitals = mongo.db.vitals
     pid = request.args.get('pid', type=str)
@@ -268,7 +293,7 @@ def get_vital_list():
     return jsonify({'vitallist': output, 'error': error})
 
 
-@application.route('/vitaldetails', methods=['GET'])
+@application.route('/vitaldetails', methods=['GET'])    #done
 def get_vital_detail_list():
     vital = mongo.db.vitals
     pid = request.args.get('pid', type=str)
@@ -286,7 +311,7 @@ def get_vital_detail_list():
     return jsonify({'vitaldetails': output, 'error': error})
 
 
-@application.route('/uploadvitals', methods=['POST'])
+@application.route('/uploadvitals', methods=['POST'])      #done
 def upload_vitals():
     vital = mongo.db.vitals
     pid = request.json['pid']

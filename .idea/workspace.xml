@@ -17,29 +17,29 @@
       <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="250" column="36" lean-forward="true" selection-start-line="250" selection-start-column="36" selection-end-line="250" selection-end-column="36" />
+            <state relative-caret-position="202">
+              <caret line="313" column="64" selection-start-line="313" selection-start-column="64" selection-end-line="313" selection-end-column="64" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#485#776#0" />
+                <element signature="e#898#940#0" />
                 <element signature="e#987#1394#0" />
-                <element signature="e#1467#2023#0" />
+                <element signature="e#1467#2507#0" />
                 <element signature="e#2113#2564#0" />
                 <element signature="e#2650#2919#0" />
                 <element signature="e#3001#3191#0" />
                 <element signature="e#3284#3727#0" />
-                <element signature="e#3805#4094#0" />
-                <element signature="e#4190#4467#0" />
-                <element signature="e#4548#4955#0" />
-                <element signature="e#5031#5280#0" />
-                <element signature="e#5367#5642#0" />
-                <element signature="e#3800#4219#0" />
-                <element signature="e#6170#6416#0" />
-                <element signature="e#4298#4813#0" />
-                <element signature="e#7116#7388#0" />
-                <element signature="e#4892#5309#0" />
-                <element signature="e#6572#7064#0" />
-                <element signature="e#8715#9187#0" />
+                <element signature="e#3806#4104#0" />
+                <element signature="e#4190#4465#0" />
+                <element signature="e#4540#4947#0" />
+                <element signature="e#5024#5273#0" />
+                <element signature="e#5349#5597#0" />
+                <element signature="e#5670#6089#0" />
+                <element signature="e#6163#6435#0" />
+                <element signature="e#6514#7029#0" />
+                <element signature="e#7109#7549#0" />
+                <element signature="e#7628#8045#0" />
+                <element signature="e#8134#8626#0" />
+                <element signature="e#8708#9002#0" />
               </folding>
             </state>
           </provider>
@@ -74,8 +74,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="825" />
-    <option name="width" value="1100" />
+    <option name="x" value="1096" />
+    <option name="width" value="829" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -91,11 +91,6 @@
             <path>
               <item name="AccentureProj" type="b2602c69:ProjectViewProjectNode" />
               <item name="AccentureProj" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AccentureProj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AccentureProj" type="462c0819:PsiDirectoryNode" />
-              <item name=".s2i" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -205,18 +200,25 @@
       <option name="project" value="LOCAL" />
       <updated>1533419424406</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Tenth">
+      <created>1533459126118</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1533459126118</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.5080645" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11302049" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.47435898" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26638177" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32905984" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -238,7 +240,8 @@
     <MESSAGE value="Seventh" />
     <MESSAGE value="Eighth" />
     <MESSAGE value="Ninth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ninth" />
+    <MESSAGE value="Tenth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tenth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -248,29 +251,58 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4131">
-          <caret line="243" column="26" lean-forward="true" selection-start-line="243" selection-start-column="26" selection-end-line="243" selection-end-column="26" />
+        <state relative-caret-position="4250">
+          <caret line="250" column="36" lean-forward="true" selection-start-line="250" selection-start-column="36" selection-end-line="250" selection-end-column="36" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#485#776#0" />
+            <element signature="e#898#940#0" />
             <element signature="e#987#1394#0" />
-            <element signature="e#1467#2023#0" />
+            <element signature="e#1467#2507#0" />
             <element signature="e#2113#2564#0" />
             <element signature="e#2650#2919#0" />
             <element signature="e#3001#3191#0" />
             <element signature="e#3284#3727#0" />
-            <element signature="e#3805#4094#0" />
-            <element signature="e#4190#4467#0" />
-            <element signature="e#4548#4955#0" />
-            <element signature="e#5031#5280#0" />
-            <element signature="e#5367#5642#0" />
-            <element signature="e#3800#4219#0" />
-            <element signature="e#6170#6416#0" />
-            <element signature="e#4298#4813#0" />
-            <element signature="e#7116#7388#0" />
-            <element signature="e#4892#5309#0" />
-            <element signature="e#6572#7064#0" />
-            <element signature="e#8715#9187#0" />
+            <element signature="e#3806#4104#0" />
+            <element signature="e#4190#4465#0" />
+            <element signature="e#4540#4947#0" />
+            <element signature="e#5024#5273#0" />
+            <element signature="e#5349#5597#0" />
+            <element signature="e#5670#6089#0" />
+            <element signature="e#6163#6435#0" />
+            <element signature="e#6514#7029#0" />
+            <element signature="e#7109#7549#0" />
+            <element signature="e#7628#8045#0" />
+            <element signature="e#8134#8626#0" />
+            <element signature="e#8708#9002#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4131">
+          <caret line="243" column="26" lean-forward="true" selection-start-line="243" selection-start-column="26" selection-end-line="243" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#898#940#0" />
+            <element signature="e#987#1394#0" />
+            <element signature="e#1467#2507#0" />
+            <element signature="e#2113#2564#0" />
+            <element signature="e#2650#2919#0" />
+            <element signature="e#3001#3191#0" />
+            <element signature="e#3284#3727#0" />
+            <element signature="e#3806#4104#0" />
+            <element signature="e#4190#4465#0" />
+            <element signature="e#4540#4947#0" />
+            <element signature="e#5024#5273#0" />
+            <element signature="e#5349#5597#0" />
+            <element signature="e#5670#6089#0" />
+            <element signature="e#6163#6435#0" />
+            <element signature="e#6514#7029#0" />
+            <element signature="e#7109#7549#0" />
+            <element signature="e#7628#8045#0" />
+            <element signature="e#8134#8626#0" />
+            <element signature="e#8708#9002#0" />
           </folding>
         </state>
       </provider>
@@ -289,31 +321,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Miniconda3/Lib/site-packages/pymongo/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="250" column="36" lean-forward="true" selection-start-line="250" selection-start-column="36" selection-end-line="250" selection-end-column="36" />
+        <state relative-caret-position="202">
+          <caret line="313" column="64" selection-start-line="313" selection-start-column="64" selection-end-line="313" selection-end-column="64" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#485#776#0" />
+            <element signature="e#898#940#0" />
             <element signature="e#987#1394#0" />
-            <element signature="e#1467#2023#0" />
+            <element signature="e#1467#2507#0" />
             <element signature="e#2113#2564#0" />
             <element signature="e#2650#2919#0" />
             <element signature="e#3001#3191#0" />
             <element signature="e#3284#3727#0" />
-            <element signature="e#3805#4094#0" />
-            <element signature="e#4190#4467#0" />
-            <element signature="e#4548#4955#0" />
-            <element signature="e#5031#5280#0" />
-            <element signature="e#5367#5642#0" />
-            <element signature="e#3800#4219#0" />
-            <element signature="e#6170#6416#0" />
-            <element signature="e#4298#4813#0" />
-            <element signature="e#7116#7388#0" />
-            <element signature="e#4892#5309#0" />
-            <element signature="e#6572#7064#0" />
-            <element signature="e#8715#9187#0" />
+            <element signature="e#3806#4104#0" />
+            <element signature="e#4190#4465#0" />
+            <element signature="e#4540#4947#0" />
+            <element signature="e#5024#5273#0" />
+            <element signature="e#5349#5597#0" />
+            <element signature="e#5670#6089#0" />
+            <element signature="e#6163#6435#0" />
+            <element signature="e#6514#7029#0" />
+            <element signature="e#7109#7549#0" />
+            <element signature="e#7628#8045#0" />
+            <element signature="e#8134#8626#0" />
+            <element signature="e#8708#9002#0" />
           </folding>
         </state>
       </provider>
