@@ -4,3 +4,4 @@ Flask-PyMongo
 scikit-learn
 pandas
 numpy
+scipy
