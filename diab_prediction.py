@@ -24,4 +24,4 @@ def get(list):
     #print(B)
     return gb.predict(B)
 
-print(get([0,148,72,33.6,50]))  #Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age,Outcome
+#print(get([0,148,72,33.6,50]))  #Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age,Outcome
