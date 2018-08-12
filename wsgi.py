@@ -4,6 +4,7 @@ from flask import jsonify
 from flask import request
 from flask_pymongo import PyMongo
 import urllib.parse
+import diab_prediction
 import sys
 
 application = Flask(__name__)
@@ -323,7 +324,16 @@ def upload_vitals():
     check_id = vital.insert({'pid': pid, 'timestamp': timestamp, 'type': type, 'value': value})
     return jsonify({'error': False})
 
-
+@application.route('/calculatesugar', methods=['GET'])
+def calculatesugar():
+    #Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome
+    glucose = request.args.get('glucose', type=str)
+    pressure = request.args.get('pressure', type=str)
+    bmi = request.args.get('bmi', type=str)
+    age = request.args.get('age', type=str)
+    list = [0, glucose, pressure, bmi, age]
+    pred = diab_prediction.get(list)
+    return jsonify({'probability': pred[0]})
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    application.run(debug=False)
