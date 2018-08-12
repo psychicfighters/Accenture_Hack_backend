@@ -333,7 +333,7 @@ def calculatesugar():
     age = request.args.get('age', type=str)
     list = [0, glucose, pressure, bmi, age]
     pred = diab_prediction.get(list)
-    return jsonify({'probability': pred[0]})
+    return jsonify({'probability': str(pred[0])})
 
 if __name__ == '__main__':
     application.run(debug=False)
