@@ -10,8 +10,7 @@ import sys
 application = Flask(__name__)
 
 application.config['MONGO_DBNAME'] = 'acc_comp_nik'
-application.config['MONGO_URI'] = 'mongodb://nilagnik:' + urllib.parse.quote(
-    "Nilu@1234") + '@ds113452.mlab.com:13452/acc_comp_nik'
+application.config['MONGO_URI'] = ''
 
 
 # mongodb://<dbuser>:<dbpassword>@ds113452.mlab.com:13452/acc_comp_nik
