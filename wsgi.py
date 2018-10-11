@@ -48,7 +48,7 @@ def get_user():
     user = mongo.db.user
     token = request.args.get('token', type=str)
     output = []
-    # s = star.find_one({'name' : name})
+
     for s in user.find({'token': token}):
         output.append({'name': s['name'], 'age': s['age'], 'pid': s['pid']})
 
@@ -96,9 +96,7 @@ def add_user():
     assign_pid = 'PA' + str(val['pcount'])
     star_id = user.insert({'pid': assign_pid, 'token': token, 'name': name, 'age': age, 'addr': addr, 'email': email,
                            'gender': gender})
-    # new_star = star.find_one({'_id': star_id })
-    # output = {'name' : new_star['name'], 'distance' : new_star['distance']}
-    #
+
     return jsonify({'pid': assign_pid, 'result_token': token})
 
 
@@ -325,7 +323,7 @@ def upload_vitals():
 
 @application.route('/calculatesugar', methods=['GET'])
 def calculatesugar():
-    #Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome
+    #Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome will show in this section
     glucose = request.args.get('glucose', type=str)
     pressure = request.args.get('pressure', type=str)
     bmi = request.args.get('bmi', type=str)
